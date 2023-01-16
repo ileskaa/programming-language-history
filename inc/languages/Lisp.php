@@ -1,0 +1,1 @@
+It is one of the oldest <a href="../../high_vs_low.php" class="to_underline">high level language</a> still in commonly use, second only to Fortran. A great many dialects of Lisp have been created since its release; Scheme, Common Lisp and Clojure being some of the most popular.

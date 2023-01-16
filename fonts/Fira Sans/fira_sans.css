@@ -1,0 +1,31 @@
+@font-face {
+    font-family: fira sans;
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    src: url('FiraSans-Regular.woff2') format('woff2');
+    }
+    
+    @font-face {
+    font-family: fira sans;
+    font-style: italic;
+    font-weight: normal;
+    font-stretch: normal;
+    src: url('FiraSans-Italic.woff2') format('woff2');
+    }
+    
+    @font-face {
+    font-family: fira sans;
+    font-style: normal;
+    font-weight: bold;
+    font-stretch: normal;
+    src: url('FiraSans-Bold.woff2') format('woff2');
+    }
+    
+    @font-face {
+    font-family: fira sans;
+    font-style: italic;
+    font-weight: bold;
+    font-stretch: normal;
+    src: url('FiraSans-BoldItalic.woff2') format('woff2');
+    }

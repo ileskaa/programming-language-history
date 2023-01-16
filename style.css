@@ -1,0 +1,263 @@
+* {
+    --thickness: 2px;
+    --my_margin: 1rem;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'fira sans', Arial, Helvetica, sans-serif;
+}
+
+html{height: 100%;}
+body{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/* a block elt generates line breaks both before and after it */
+h1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 1.2rem 0;
+}
+h1 a {
+    font-family: charter, 'Times New Roman', Times, serif;
+}
+h2{
+    text-align: center;
+    margin-top: 1.3rem;
+}
+.decade {
+    --border-color: grey;
+    border-bottom: var(--thickness) solid var(--border-color);
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;
+    flex-direction: column;
+    margin-top: var(--my_margin);
+}
+a{
+    border-radius: 100%;
+    /* margin: 1rem 0; */
+    margin-bottom: var(--my_margin);
+    cursor: pointer;
+    text-decoration: inherit;
+    color: inherit;
+}
+.language {
+    --length: 6rem;
+    --thickness: .5rem;
+    position: relative;
+    display: inline-block; /* if I chose inline, the margins would not work as expected */
+    font-size: .9rem;
+    width: var(--length);
+    height: var(--length);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 100%;
+}
+.language::before, .language::after {
+    --color: #0eb7da;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: inherit;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+}
+.language::before {
+    border: var(--thickness) solid black;
+}
+.language:hover::before {
+    --time: 0.15s;
+    border-top-color: var(--color);
+    border-right-color: var(--color);
+    border-bottom-color: var(--color);
+    border-left-color: var(--color);
+    transition: border-top-color var(--time) linear,
+        border-right-color var(--time) linear 0.1s,
+        border-bottom-color var(--time) linear 0.2s,
+        border-left-color var(--time) linear 0.3s;
+}
+.language::after {
+    border: 0 solid transparent;
+}
+/* render border at the top and rotate it */
+.language:hover::after {
+    border-top: var(--thickness) solid var(--color);
+    border-left-width: var(--thickness);
+    border-right-width: var(--thickness);
+    transform: rotate(270deg);
+    transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
+}
+.years{
+    position: absolute;
+    right: 10px;
+    font-size: 2rem;
+}
+#group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#group div{
+    --margin: .5rem;
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+}
+/* make sure the footer always stays at the bottom */
+.content{
+    flex: 1 0 auto; /* flex-grow flex-shrink flex-basis */
+}
+.flex-wrap{
+    display: flex;
+    justify-content: center;
+}
+.flex-item{
+    width: 720px;
+    margin: 1.3rem 4%;
+}
+.title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: .8rem;
+}
+.to_underline{
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-color: blue;
+    color: blue;
+}
+#to_underline:hover{
+    cursor: pointer;
+}
+p {margin-bottom: 1rem;}
+pre {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(246, 246, 246);
+    overflow-y: auto;
+    max-width: 92vw;
+}
+img {
+    display: block;
+    margin: 0 auto;
+}
+#highLowScale{
+    height: 300px;
+}
+
+footer{
+    flex-shrink: 0;
+    margin-top: calc(-1 * var(--thickness));
+    padding-top: 1.5rem;
+    padding-left: .5rem;
+    background-color: black;
+    color: white;
+}
+
+/* SET LANGUAGE-SPECIFIC COLORS */
+#fortran{
+    background-color: #734f96;
+    color: white;
+}
+#lisp{
+    background-color: rgba(45,95,180,0.95);
+    color: white;
+}
+#basic{
+    background-color: #000fa8;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
+#algol68{
+    background-color: #fcfc5b;
+}
+#pascal{
+    background-color: #3466a5;
+    color: white;
+}
+#smalltalk{
+    background-color: #ddcc9d;
+}
+#c, #cpp{
+    background-image: linear-gradient(to bottom, #659ad3 0%, #00599d 50%, #004481 100%);
+    color: white;
+}
+#objective-c{
+    background-color: black;
+    color: white;
+}
+#perl{
+    background-image: linear-gradient(to bottom, #0073A1 0%, #003555 100%);
+    color: white;
+}
+#haskell{
+    background-image: linear-gradient(to bottom, #453a62 0%, #5e5086 50%, #8f4e8b 100%);
+    color: white;
+}
+#python{
+    /* background-image: linear-gradient(to bottom, #3872a2 0%, #ffd344 100%); */
+    background: linear-gradient(135deg, #3872a2 50%, #ffd344 50%);
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000, /* offset-x offset-y blur-radius color */
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+#lua{
+    background-color: #040480;
+    color: white;
+}
+#php{
+    --phpcolor: white;
+    background-color: #777bb3;
+    text-shadow:
+        -1px -1px 0 var(--phpcolor),
+        1px -1px 0 var(--phpcolor),
+        -1px 1px 0 var(--phpcolor),
+        1px 1px 0 var(--phpcolor);
+}
+#java{
+    background-color: #3a75b0;
+    color: white;
+}
+#javascript{
+    background-color: #f7df1d;
+}
+#ruby{
+    background-image: linear-gradient(to bottom, #ec1521 0%, #960e16 100%);
+    color: white;
+}
+#csharp{
+    background-image: linear-gradient(to bottom, #9b4f97 0%, #803788 50%, #67217a 100%);
+    color: white;
+}
+#scala{
+    background-color: #db322f;
+    color: white;
+}
+#go{
+    background-color: #007d9c;
+    color:  white;
+}
+#rust{
+    font-family: 'Alfa Slab One', serif;
+    font-weight: 400;
+}
+#kotlin{
+    background-image: linear-gradient(to bottom, #de3c76 0%, #b720e9 50%, #8c45f9 100%);
+    color: white;
+}
+#dart{
+    background-image: linear-gradient(to bottom, #41c4ff 0%, #055b9d 50%, #1C2834 100%);
+    color: white;
+}
+#swift{
+    background-image: linear-gradient(to bottom, #fcab40 0%, #ff3727 100%);
+    color: white;
+}
